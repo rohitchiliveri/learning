@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: springboot-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_management_system?useSSL=false
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        
+  kafka:
+   bootstrap-servers: localhost:9092
+   consumer:
+     auto-offset-reset: earliest
+    # Uncomment and adjust if you want full producer/consumer config
+    # bootstrap-servers: localhost:9092
+    # producer:
+    #   key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    #   value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    # consumer:
+    #   group-id: demo
+    #   auto-offset-reset: earliest
+    #   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    #   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    #   properties:
+    #     spring.json.trusted.packages: "*"
+
+
+jwt:
+  # Must be at least 32 characters for HS256
+  secret: my-super-secret-key-which-is-very-long-32chars
+  expiration: 900000
+
+ 
